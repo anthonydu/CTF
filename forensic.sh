@@ -2,6 +2,7 @@ function forensic() {
     if [ "$#" -eq 1 ]
     then
         file "$1" &&
+        exiftool "$1" &&
         binwalk "$1" &&
         read -p "Would you like to carve this file? (y/n) " carve
         case "$carve" in
